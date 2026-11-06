@@ -437,9 +437,139 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const quoteForm = document.getElementById('whatsappQuoteForm');
+  let userGeoCoords = null;
+  const btnOpenMap = document.getElementById('btnOpenMap');
+  const locMainText = document.getElementById('locMainText');
+  const locSubText = document.getElementById('locSubText');
+
+  // Modal elements
+  const mapModal = document.getElementById('mapModal');
+  const mapModalBackdrop = document.getElementById('mapModalBackdrop');
+  const mapModalClose = document.getElementById('mapModalClose');
+  const mapBtnConfirm = document.getElementById('mapBtnConfirm');
+  const mapBtnCurrentLoc = document.getElementById('mapBtnCurrentLoc');
+
+  let leafletMap = null;
+  let mapMarker = null;
+  const defaultPueblaCoords = [19.0414, -98.2063]; // Centro Puebla / Tlaxcala
+
+  function openMapPicker() {
+    if (!mapModal) return;
+    mapModal.style.display = 'flex';
+    mapModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    const initialPos = userGeoCoords ? [userGeoCoords.lat, userGeoCoords.lng] : defaultPueblaCoords;
+
+    if (!leafletMap && typeof L !== 'undefined') {
+      leafletMap = L.map('interactiveMap', {
+        center: initialPos,
+        zoom: 13,
+        zoomControl: true
+      });
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
+      }).addTo(leafletMap);
+
+      mapMarker = L.marker(initialPos, { draggable: true }).addTo(leafletMap);
+      mapMarker.bindPopup('<b>Lugar del evento</b><br>Arrastra o toca para cambiar').openPopup();
+
+      mapMarker.on('dragend', () => {
+        const p = mapMarker.getLatLng();
+        mapMarker.bindPopup(`<b>Punto seleccionado</b><br>${p.lat.toFixed(5)}, ${p.lng.toFixed(5)}`).openPopup();
+      });
+
+      leafletMap.on('click', (e) => {
+        mapMarker.setLatLng(e.latlng);
+        mapMarker.bindPopup(`<b>Punto seleccionado</b><br>${e.latlng.lat.toFixed(5)}, ${e.latlng.lng.toFixed(5)}`).openPopup();
+      });
+    }
+
+    setTimeout(() => {
+      if (leafletMap) {
+        leafletMap.invalidateSize();
+        if (userGeoCoords) {
+          leafletMap.setView([userGeoCoords.lat, userGeoCoords.lng], 14);
+          if (mapMarker) mapMarker.setLatLng([userGeoCoords.lat, userGeoCoords.lng]);
+        }
+      }
+    }, 200);
+  }
+
+  function closeMapPicker() {
+    if (!mapModal) return;
+    mapModal.style.display = 'none';
+    mapModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (btnOpenMap) {
+    btnOpenMap.addEventListener('click', openMapPicker);
+  }
+
+  if (mapModalClose) mapModalClose.addEventListener('click', closeMapPicker);
+  if (mapModalBackdrop) mapModalBackdrop.addEventListener('click', closeMapPicker);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mapModal && mapModal.style.display === 'flex') {
+      closeMapPicker();
+    }
+  });
+
+  if (mapBtnCurrentLoc) {
+    mapBtnCurrentLoc.addEventListener('click', () => {
+      if (!navigator.geolocation) {
+        alert('La geolocalización no está disponible en este dispositivo.');
+        return;
+      }
+      mapBtnCurrentLoc.textContent = 'Obteniendo GPS...';
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          mapBtnCurrentLoc.textContent = '📍 Mi ubicación actual';
+          const lat = pos.coords.latitude;
+          const lng = pos.coords.longitude;
+          if (leafletMap && mapMarker) {
+            leafletMap.setView([lat, lng], 15);
+            mapMarker.setLatLng([lat, lng]);
+            mapMarker.bindPopup('<b>Tu ubicación actual</b>').openPopup();
+          }
+        },
+        (err) => {
+          mapBtnCurrentLoc.textContent = '📍 Mi ubicación actual';
+          console.warn('GPS error:', err);
+          alert('No se pudo obtener la ubicación actual. Puedes navegar en el mapa y tocar donde será tu evento.');
+        },
+        { enableHighAccuracy: true, timeout: 8000 }
+      );
+    });
+  }
+
+  if (mapBtnConfirm) {
+    mapBtnConfirm.addEventListener('click', () => {
+      if (mapMarker) {
+        const pos = mapMarker.getLatLng();
+        userGeoCoords = {
+          lat: pos.lat.toFixed(6),
+          lng: pos.lng.toFixed(6)
+        };
+        if (locMainText) locMainText.textContent = '✓ Ubicación fijada en el mapa';
+        if (locSubText) locSubText.textContent = `Coordenadas: ${userGeoCoords.lat}, ${userGeoCoords.lng} (Toca para cambiar)`;
+        if (btnOpenMap) btnOpenMap.classList.add('is-selected');
+      }
+      closeMapPicker();
+    });
+  }
+
   if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
       e.preventDefault();
+
+      if (!userGeoCoords) {
+        openMapPicker();
+        alert('Por favor selecciona en el mapa el punto donde se realizará tu evento para adjuntarlo a tu cotización.');
+        return;
+      }
 
       const eventTypeEl = quoteForm.querySelector('[data-field="evento"] .chip.is-selected');
       const eventType = eventTypeEl ? eventTypeEl.getAttribute('data-value') : 'Evento especial';
@@ -448,22 +578,142 @@ document.addEventListener('DOMContentLoaded', () => {
         .map(c => c.getAttribute('data-value'));
       const servicesStr = selectedServices.length > 0 ? selectedServices.join(', ') : 'Carpas y Mobiliario';
 
-      const guests = document.getElementById('guestCount')?.value || '100 a 200 invitados';
-      const place = document.getElementById('eventPlace')?.value.trim() || 'Puebla / Tlaxcala';
+      const guests = document.getElementById('guestCount')?.value || '10 a 50 personas';
+      const mapUrl = `https://maps.google.com/?q=${userGeoCoords.lat},${userGeoCoords.lng}`;
 
-      const text = [
+      const textLines = [
         'Hola Oasis Eventos, me gustaría solicitar una cotización:',
         '',
         `- Tipo de evento: ${eventType}`,
         `- Servicios requeridos: ${servicesStr}`,
         `- Aforo estimado: ${guests}`,
-        `- Ubicación: ${place}`,
-        '',
-        'Quedo atento a su disponibilidad y opciones. Gracias.'
-      ].join('\n');
+        `- Ubicación en Google Maps: ${mapUrl}`
+      ];
 
-      const waUrl = `https://wa.me/5212224366609?text=${encodeURIComponent(text)}`;
+      textLines.push('', 'Quedo atento a su disponibilidad y opciones. Gracias.');
+
+      const waUrl = `https://wa.me/5212224366609?text=${encodeURIComponent(textLines.join('\n'))}`;
       window.open(waUrl, '_blank', 'noopener,noreferrer');
     });
   }
+
+  // 12. Mini Gallery / Carousel inside Deck Cards
+  function initDeckGalleries() {
+    const galleries = document.querySelectorAll('[data-deck-gallery]');
+    galleries.forEach((gallery) => {
+      const track = gallery.querySelector('[data-deck-gallery-track]');
+      const slides = gallery.querySelectorAll('.deck-gallery__slide');
+      const prevBtn = gallery.querySelector('[data-deck-gallery-prev]');
+      const nextBtn = gallery.querySelector('[data-deck-gallery-next]');
+      const dotsContainer = gallery.querySelector('[data-deck-gallery-dots]');
+      const counterEl = gallery.querySelector('[data-deck-gallery-counter]');
+
+      if (!track || slides.length === 0) return;
+
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+
+      // Generar dots dinámicamente según la cantidad de fotos
+      if (dotsContainer) {
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, idx) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = `deck-gallery__dot ${idx === 0 ? 'is-active' : ''}`;
+          dot.setAttribute('aria-label', `Ver foto ${idx + 1} de ${totalSlides}`);
+          dot.addEventListener('click', (e) => {
+            e.stopPropagation();
+            goToSlide(idx);
+          });
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function updateActiveState(index) {
+        currentIndex = index;
+        if (dotsContainer) {
+          const dots = dotsContainer.querySelectorAll('.deck-gallery__dot');
+          dots.forEach((d, i) => d.classList.toggle('is-active', i === currentIndex));
+        }
+        if (counterEl) {
+          counterEl.textContent = `${currentIndex + 1} / ${totalSlides}`;
+        }
+      }
+
+      function goToSlide(index) {
+        const slideWidth = track.clientWidth;
+        track.scrollTo({
+          left: index * slideWidth,
+          behavior: 'smooth'
+        });
+        updateActiveState(index);
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const target = (currentIndex - 1 + totalSlides) % totalSlides;
+          goToSlide(target);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const target = (currentIndex + 1) % totalSlides;
+          goToSlide(target);
+        });
+      }
+
+      // Sincronizar estado en swipe táctil y scroll
+      let scrollTimer;
+      track.addEventListener('scroll', () => {
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+          const slideWidth = track.clientWidth;
+          if (slideWidth > 0) {
+            const newIndex = Math.round(track.scrollLeft / slideWidth);
+            if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalSlides) {
+              updateActiveState(newIndex);
+            }
+          }
+        }, 50);
+      }, { passive: true });
+
+      // Arrastre con ratón en escritorio
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let hasDragged = false;
+
+      track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        hasDragged = false;
+        track.classList.add('is-dragging');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+      });
+
+      window.addEventListener('mouseup', () => {
+        if (!isDown) return;
+        isDown = false;
+        track.classList.remove('is-dragging');
+        const slideWidth = track.clientWidth;
+        if (slideWidth > 0 && hasDragged) {
+          const targetIndex = Math.round(track.scrollLeft / slideWidth);
+          goToSlide(targetIndex);
+        }
+      });
+
+      track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 1.1;
+        if (Math.abs(walk) > 4) hasDragged = true;
+        track.scrollLeft = scrollLeft - walk;
+      });
+    });
+  }
+  initDeckGalleries();
 });
