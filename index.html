@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1A1A1A" />
+  <title>Oasis Eventos | Renta de Carpas, Domos y Mobiliario de Lujo</title>
+  <meta name="description" content="Todo lo que tu evento necesita en un solo lugar. Renta de carpas estructurales, domos transparentes, entelados artesanales y mobiliario de lujo para bodas, fiestas y eventos masivos en Puebla y Tlaxcala." />
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/img/favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Open Graph / WhatsApp / Social Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="Oasis Eventos" />
+  <meta property="og:title" content="Oasis Eventos | Arquitectura Efímera y Mobiliario de Autor" />
+  <meta property="og:description" content="Carpas estructurales, domos transparentes, entelados artesanales y banquetería de autor para bodas y eventos en Puebla y Tlaxcala." />
+  <meta property="og:image" content="assets/img/og-preview.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Oasis Eventos — Carpas, Domos y Mobiliario de Lujo" />
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Oasis Eventos | Arquitectura Efímera y Mobiliario de Autor" />
+  <meta name="twitter:description" content="Carpas estructurales, domos transparentes, entelados artesanales y banquetería de autor en Puebla y Tlaxcala." />
+  <meta name="twitter:image" content="assets/img/og-preview.jpg" />
+
+  <!-- Google Fonts: Playfair Display & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Top Scroll Progress Line -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- Top Editorial Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#inicio" class="navbar__brand" aria-label="Oasis Eventos Inicio">
+        <img src="assets/img/logo-light.png" alt="Oasis Eventos Logo" class="navbar__logo-img" />
+      </a>
+
+      <nav class="navbar__links" aria-label="Navegación principal">
+        <a href="#servicios" class="navbar__link">Servicios</a>
+        <a href="#recorrido" class="navbar__link">Recorrido Visual</a>
+        <a href="#portafolio" class="navbar__link">Portafolio</a>
+        <a href="#cotizador" class="navbar__link">Cotizar</a>
+        <a href="#contacto" class="navbar__link">Contacto</a>
+      </nav>
+
+      <div class="navbar__actions">
+        <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20gustar%C3%ADa%20solicitar%20una%20cotizaci%C3%B3n%20para%20mi%20evento." target="_blank" rel="noopener noreferrer" class="btn btn-primary navbar__cta">
+          <span>WhatsApp Directo</span>
+        </a>
+        <button class="navbar__burger" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Fullscreen Mobile Menu Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="mobile-drawer__backdrop" id="drawerBackdrop"></div>
+    <div class="mobile-drawer__panel">
+      <div class="mobile-drawer__header">
+        <img src="assets/img/logo-light.png" alt="Oasis Eventos" class="mobile-drawer__logo" />
+        <button class="mobile-drawer__close" id="drawerClose" aria-label="Cerrar menú">&times;</button>
+      </div>
+      <nav class="mobile-drawer__nav">
+        <a href="#inicio" class="mobile-drawer__link" data-close-drawer><span>I.</span> Inicio</a>
+        <a href="#servicios" class="mobile-drawer__link" data-close-drawer><span>II.</span> Servicios</a>
+        <a href="#recorrido" class="mobile-drawer__link" data-close-drawer><span>III.</span> Recorrido en Movimiento</a>
+        <a href="#portafolio" class="mobile-drawer__link" data-close-drawer><span>IV.</span> Galería Real</a>
+        <a href="#cotizador" class="mobile-drawer__link" data-close-drawer><span>V.</span> Cotizar Evento</a>
+        <a href="#contacto" class="mobile-drawer__link" data-close-drawer><span>VI.</span> Contacto</a>
+      </nav>
+      <div class="mobile-drawer__footer">
+        <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20quiero%20cotizar%20mi%20evento." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-block">
+          WhatsApp: 222 436 6609
+        </a>
+        <div class="mobile-drawer__socials">
+          <a href="https://www.facebook.com/profile.php?id=61553444583339&locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <span>/</span>
+          <a href="https://www.instagram.com/oasiseventos01/" target="_blank" rel="noopener noreferrer">Instagram @oasiseventos01</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================
+         1. HERO SECTION (100vh + Pinned Scroll-Expand Frame + Pure Editorial Center)
+         ========================================== -->
+    <section class="hero" id="inicio">
+      <!-- Pure CSS Parallax & Scroll-Driven Zoom Stage -->
+      <div class="hero__stage" id="heroStage">
+        <div class="hero__parallax-bg" id="heroBg" role="img" aria-label="Montaje nocturno de carpa iluminada por Oasis Eventos"></div>
+        <!-- Subtle architectural grid & vignette that sharpens background perception -->
+        <div class="hero__texture" aria-hidden="true"></div>
+        <div class="hero__overlay" id="heroOverlay"></div>
+      </div>
+
+      <!-- Floating Depth Photos that drift past in 3D as you scroll -->
+      <div class="hero__floating-photos" aria-hidden="true">
+        <div class="hero__float-img hero__float-img--left" id="heroFloatLeft">
+          <img src="assets/img/entelado-petalo-camel-boda.jpg?v=4k" alt="" />
+        </div>
+        <div class="hero__float-img hero__float-img--right" id="heroFloatRight">
+          <img src="assets/img/mobiliario-madera-crossback.jpg?v=4k" alt="" />
+        </div>
+      </div>
+
+      <!-- Strictly Centered Editorial Content -->
+      <div class="container hero__content" id="heroContent">
+        <div class="hero__emblem reveal-hero">
+          <img src="assets/img/logo-light.png" alt="Emblema Oasis Eventos" class="hero__emblem-img" />
+        </div>
+
+        <p class="hero__eyebrow reveal-hero">PUEBLA &mdash; TLAXCALA</p>
+
+        <h1 class="hero__title reveal-hero">
+          Carpas, Domos y <span class="text-italic">Mobiliario de Lujo</span>
+        </h1>
+
+        <p class="hero__subtitle reveal-hero">
+          Todo lo que tu evento necesita en un solo lugar. Calidad, estilo y comodidad diseñados para bodas, celebraciones privadas y festivales masivos.
+        </p>
+
+        <div class="hero__buttons reveal-hero">
+          <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20interesa%20cotizar%20carpas%20y%20mobiliario%20para%20un%20evento." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>Cotizar por WhatsApp</span>
+          </a>
+          <a href="#recorrido" class="btn btn-outlined">
+            <span>Ver Montajes en Movimiento</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="#servicios" class="hero__scroll-cue" aria-label="Deslizar hacia abajo">
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- ==========================================
+         2. SECCIÓN DE SERVICIOS (Neutral #FAF9F6 + 3 Cards Staggered + Dynamic Curtain Reveal)
+         ========================================== -->
+    <section class="services-section" id="servicios">
+      <!-- Subtle background parallax watermark -->
+      <div class="bg-kinetic-title" data-kinetic-text="-15" aria-hidden="true">ARQUITECTURA EFÍMERA &bull; OASIS EVENTOS</div>
+
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker gs-reveal">ESPECIALIDADES</span>
+          <h2 class="section-title gs-reveal">Tres pilares para un montaje impecable</h2>
+          <div class="section-divider gs-reveal"></div>
+          <p class="section-desc gs-reveal">
+            Desde la ingeniería de una gran nave estructural hasta el brillo del último cubierto sobre la mesa.
+          </p>
+        </div>
+
+        <!-- Required 3-Card CSS Grid with Staggered Scroll Reveal -->
+        <div class="services-grid">
+          <!-- Card 1: Montaje de Carpas -->
+          <article class="service-card" data-tilt-card>
+            <div class="service-card__media">
+              <div class="service-card__img-wrap">
+                <img src="assets/img/entelado-petalo-camel-boda.jpg?v=4k" alt="Montaje de Carpas y Entelados en Oasis Eventos" loading="lazy" />
+              </div>
+              <span class="service-card__num">I</span>
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__category">ESTRUCTURAS Y ENTELAJE</span>
+              <h3 class="service-card__title">Montaje de Carpas</h3>
+              <p class="service-card__text">
+                Carpas elegantes con ventanales tipo capilla, pabellones árabes de punta alta y cielos tejidos artesanalmente en pétalos o listones para bodas y recepciones.
+              </p>
+              <div class="service-card__specs">
+                <span>Entelados de autor</span>
+                <span>Pabellones 5x5 y 10x10</span>
+                <span>Tarimas y calefacción</span>
+              </div>
+              <div class="service-card__footer">
+                <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20interesa%20cotizar%20el%20servicio%20de%20Montaje%20de%20Carpas%20y%20Entelados." target="_blank" rel="noopener noreferrer" class="btn btn-secondary service-card__btn">
+                  Solicitar Medidas y Precios
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Domos -->
+          <article class="service-card" data-tilt-card>
+            <div class="service-card__media">
+              <div class="service-card__img-wrap">
+                <img src="assets/img/domo-transparente-nubes.jpg?v=4k" alt="Domos transparentes y estructuras negras Oasis Eventos" loading="lazy" />
+              </div>
+              <span class="service-card__num">II</span>
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__category">INGENIERÍA Y GRAN FORMATO</span>
+              <h3 class="service-card__title">Domos</h3>
+              <p class="service-card__text">
+                Domos transparentes en estructura negra o blanca que integran los jardines y el cielo estrellado, además de naves de gran claro para conciertos, carreras y festivales.
+              </p>
+              <div class="service-card__specs">
+                <span>Cubierta Cristal Clear</span>
+                <span>Estructura Negra Mate</span>
+                <span>Cobertura Masiva</span>
+              </div>
+              <div class="service-card__footer">
+                <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20interesa%20cotizar%20un%20Domo%20o%20Estructura%20Transparente." target="_blank" rel="noopener noreferrer" class="btn btn-secondary service-card__btn">
+                  Cotizar Domo o Nave
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Mobiliario de Lujo -->
+          <article class="service-card" data-tilt-card>
+            <div class="service-card__media">
+              <div class="service-card__img-wrap">
+                <img src="assets/img/mobiliario-madera-crossback.jpg?v=4k" alt="Mobiliario de Lujo, mesas de madera y sillas crossback" loading="lazy" />
+              </div>
+              <span class="service-card__num">III</span>
+            </div>
+            <div class="service-card__body">
+              <span class="service-card__category">BANQUETERÍA Y MESA</span>
+              <h3 class="service-card__title">Mobiliario de Lujo</h3>
+              <p class="service-card__text">
+                Mesas imperiales de madera maciza o blanco vintage, sillas Crossback y Rattan, periqueras de jardín, platos base barrocos dorados y cubertería fina en oro o negro.
+              </p>
+              <div class="service-card__specs">
+                <span>Madera y Crossback</span>
+                <span>Platos Base Dorados</span>
+                <span>Cristalería y Loza</span>
+              </div>
+              <div class="service-card__footer">
+                <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20interesa%20cotizar%20Mobiliario%20de%20Lujo%20y%20Loza." target="_blank" rel="noopener noreferrer" class="btn btn-secondary service-card__btn">
+                  Cotizar Mobiliario
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         3. RECORRIDO CINEMATOGRÁFICO SCROLL-DRIVEN (Pinned Card-Stacking + Live Chapter Progress + Secondary Floating Detail)
+         ========================================== -->
+    <section class="deck-showcase" id="recorrido">
+      <div class="container deck-showcase__intro">
+        <span class="section-kicker section-kicker--gold gs-reveal">EXPERIENCIA ENVOLVENTE</span>
+        <h2 class="section-title section-title--light gs-reveal">Sigue bajando y vive la transformación</h2>
+        <div class="section-divider gs-reveal"></div>
+        <p class="section-desc section-desc--light gs-reveal">
+          Cada capa de nuestro trabajo se superpone en movimiento para construir un escenario completo, de día o de noche.
+        </p>
+      </div>
+
+      <!-- Stacking Scroll Cards: Each card pins and scales down in 3D as the next slides over it -->
+      <div class="deck-container">
+        <!-- Slide 1 -->
+        <article class="deck-card" data-deck-card>
+          <div class="deck-card__inner">
+            <div class="deck-card__progress-bar"><span data-deck-progress></span></div>
+            <div class="deck-card__visual">
+              <img src="assets/img/entelado-petalo-camel-boda.jpg?v=4k" alt="Entelado artesanal tipo pétalo en tono camel" class="deck-card__main-img" />
+              <!-- Floating Secondary Detail Inset that moves at a different parallax speed -->
+              <div class="deck-card__inset" data-deck-inset>
+                <img src="assets/img/detalle-entelado-camel.jpg" alt="Detalle de pétalos textiles" loading="lazy" />
+                <span>Detalle Textil</span>
+              </div>
+            </div>
+            <div class="deck-card__content">
+              <div class="deck-card__meta-row">
+                <span class="deck-card__step">CAPÍTULO 01 / 04</span>
+                <span class="deck-card__line"></span>
+                <span class="deck-card__tag">DISEÑO DE ALTURA</span>
+              </div>
+              <h3 class="deck-card__title">Entelados que transforman la luz</h3>
+              <p class="deck-card__text">
+                Diseñamos cielos textiles en capas tipo pétalo, plisados imperiales o miles de listones suspendidos que suavizan la luz del día y abrazan la iluminación nocturna.
+              </p>
+              <div class="deck-card__metrics">
+                <div><strong>Pétalo &amp; Plisado</strong><span>Tejido artesanal</span></div>
+                <div><strong>Confort Térmico</strong><span>Calefacción integrada</span></div>
+              </div>
+              <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20interesa%20cotizar%20un%20entelado%20para%20mi%20evento." target="_blank" rel="noopener noreferrer" class="btn btn-outlined">
+                Consultar Entelados
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="deck-card" data-deck-card>
+          <div class="deck-card__inner">
+            <div class="deck-card__progress-bar"><span data-deck-progress></span></div>
+            <div class="deck-card__visual">
+              <img src="assets/img/domo-transparente-nubes.jpg?v=4k" alt="Domo transparente con estructura negra" class="deck-card__main-img" />
+              <div class="deck-card__inset" data-deck-inset>
+                <img src="assets/img/domo-negro-cristal.jpg" alt="Estructura negra domo cristal" loading="lazy" />
+                <span>Perfil Negro Mate</span>
+              </div>
+            </div>
+            <div class="deck-card__content">
+              <div class="deck-card__meta-row">
+                <span class="deck-card__step">CAPÍTULO 02 / 04</span>
+                <span class="deck-card__line"></span>
+                <span class="deck-card__tag">CLEAR SPAN</span>
+              </div>
+              <h3 class="deck-card__title">Arquitectura transparente bajo el cielo</h3>
+              <p class="deck-card__text">
+                Nuestras estructuras en perfil negro mate con cubierta cristal permiten disfrutar árboles, jardines y arquitectura histórica con protección total contra la lluvia o el frío.
+              </p>
+              <div class="deck-card__metrics">
+                <div><strong>Vista 360&deg;</strong><span>Cubierta cristal</span></div>
+                <div><strong>Alta Resistencia</strong><span>Viento y lluvia</span></div>
+              </div>
+              <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20quiero%20cotizar%20un%20domo%20transparente." target="_blank" rel="noopener noreferrer" class="btn btn-outlined">
+                Consultar Domos Cristal
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 3 -->
+        <article class="deck-card" data-deck-card>
+          <div class="deck-card__inner">
+            <div class="deck-card__progress-bar"><span data-deck-progress></span></div>
+            <div class="deck-card__visual">
+              <img src="assets/img/mobiliario-madera-crossback.jpg?v=4k" alt="Banquete imperial con mesas de madera y sillas Crossback" class="deck-card__main-img" />
+              <div class="deck-card__inset" data-deck-inset>
+                <img src="assets/img/cubiertos-dorados-marmol.jpg" alt="Cubertería dorada sobre mármol" loading="lazy" />
+                <span>Cubertería Oro</span>
+              </div>
+            </div>
+            <div class="deck-card__content">
+              <div class="deck-card__meta-row">
+                <span class="deck-card__step">CAPÍTULO 03 / 04</span>
+                <span class="deck-card__line"></span>
+                <span class="deck-card__tag">ARTE EN LA MESA</span>
+              </div>
+              <h3 class="deck-card__title">Mesas vestidas con carácter y distinción</h3>
+              <p class="deck-card__text">
+                Combinamos maderas cálidas, sillas Crossback, platos sitio dorados labrados, copas de cristal y cubertería dorada o negra mate para que el banquete luzca de revista.
+              </p>
+              <div class="deck-card__metrics">
+                <div><strong>Crossback &amp; Rattan</strong><span>Maderas selectas</span></div>
+                <div><strong>Loza Barroca</strong><span>Oro y Negro Satinado</span></div>
+              </div>
+              <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20quiero%20cotizar%20mesas%2C%20sillas%20y%20loza%20de%20lujo." target="_blank" rel="noopener noreferrer" class="btn btn-outlined">
+                Consultar Banquetería
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Slide 4 -->
+        <article class="deck-card" data-deck-card>
+          <div class="deck-card__inner">
+            <div class="deck-card__progress-bar"><span data-deck-progress></span></div>
+            <div class="deck-card__visual">
+              <img src="assets/img/evento-masivo-aerea.jpg" alt="Vista aérea de festival y evento masivo Oasis Eventos" class="deck-card__main-img" />
+              <div class="deck-card__inset" data-deck-inset>
+                <img src="assets/img/carpas-atardecer.jpg" alt="Pabellones al atardecer" loading="lazy" />
+                <span>Gran Formato</span>
+              </div>
+            </div>
+            <div class="deck-card__content">
+              <div class="deck-card__meta-row">
+                <span class="deck-card__step">CAPÍTULO 04 / 04</span>
+                <span class="deck-card__line"></span>
+                <span class="deck-card__tag">GRAN ESCALA</span>
+              </div>
+              <h3 class="deck-card__title">Capacidad real para eventos masivos</h3>
+              <p class="deck-card__text">
+                Desde bodas exclusivas en haciendas hasta festivales, carreras deportivas y montajes en recintos como el Auditorio Metropolitano con decenas de pabellones sincronizados.
+              </p>
+              <div class="deck-card__metrics">
+                <div><strong>Naves y Pabellones</strong><span>Montaje express</span></div>
+                <div><strong>Puebla &amp; Tlaxcala</strong><span>Logística integral</span></div>
+              </div>
+              <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20necesito%20cotizar%20carpas%20para%20un%20evento%20corporativo%20o%20masivo." target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                Cotizar Proyecto Especial
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Dual Opposite Scroll-Scrubbed Filmstrips (Moves Left/Right as you scroll on mobile & desktop!) -->
+      <div class="scroll-filmstrips" aria-label="Secuencia fotográfica en movimiento">
+        <div class="filmstrip filmstrip--left" id="filmstripLeft">
+          <div class="filmstrip__item"><img src="assets/img/carpas-atardecer.jpg" alt="Carpas al atardecer" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/cubiertos-dorados-marmol.jpg" alt="Cubertería dorada" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/pabellon-atardecer-vertical.jpg" alt="Pabellón árabe al atardecer" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/cielo-tiras-blancas.jpg" alt="Cielo tejido blanco" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/carpas-auditorio-metropolitano.jpg" alt="Auditorio Metropolitano" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/cubiertos-negros-marmol.jpg" alt="Cubertería negra" loading="lazy" /></div>
+        </div>
+        <div class="filmstrip filmstrip--right" id="filmstripRight">
+          <div class="filmstrip__item"><img src="assets/img/pabellones-jardin-periqueras.jpg" alt="Pabellones en jardín" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/carpa-imperial-ventanales.jpg" alt="Carpa imperial" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/montaje-plato-barroco-dorado.jpg" alt="Plato base dorado" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/carpa-hacienda.jpg" alt="Carpa en hacienda" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/festival-aerea-domos.jpg" alt="Festival vista aérea" loading="lazy" /></div>
+          <div class="filmstrip__item"><img src="assets/img/pabellones-arabes-triple.jpg" alt="Pabellones árabes" loading="lazy" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. PORTAFOLIO / GALERÍA INTERACTIVA CON PARALLAX ASIMÉTRICO
+         ========================================== -->
+    <section class="portfolio-section" id="portafolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker gs-reveal">ARCHIVO FOTOGRÁFICO</span>
+          <h2 class="section-title gs-reveal">Montajes Reales en Puebla y Tlaxcala</h2>
+          <div class="section-divider gs-reveal"></div>
+          <p class="section-desc gs-reveal">
+            Toca cualquier fotografía para inspeccionar el montaje en pantalla completa.
+          </p>
+
+          <!-- Clean Editorial Filter Tabs -->
+          <div class="portfolio-filters gs-reveal" role="tablist" aria-label="Filtrar galería por especialidad">
+            <button class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true">Todo el Archivo</button>
+            <button class="filter-pill" data-filter="carpas" role="tab" aria-selected="false">Carpas y Entelados</button>
+            <button class="filter-pill" data-filter="domos" role="tab" aria-selected="false">Domos y Festivales</button>
+            <button class="filter-pill" data-filter="mobiliario" role="tab" aria-selected="false">Mobiliario y Mesa</button>
+          </div>
+        </div>
+
+        <!-- Bento / Masonry Interactive Gallery -->
+        <div class="portfolio-grid" id="portfolioGrid">
+          <figure class="portfolio-item portfolio-item--wide" data-category="mobiliario" data-src="assets/img/mobiliario-madera-crossback.jpg?v=4k" data-caption="Banquete con mesas de madera maciza, sillas Crossback y arreglos florales">
+            <img src="assets/img/mobiliario-madera-crossback.jpg?v=4k" alt="Banquete con mesas de madera maciza y sillas Crossback" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Mobiliario de Lujo</span>
+              <h4 class="portfolio-item__title">Mesas de Madera &amp; Sillas Crossback</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item portfolio-item--tall" data-category="carpas" data-src="assets/img/entelado-petalo-camel-boda.jpg?v=4k" data-caption="Entelado artesanal tipo pétalo en tono camel con calentadores ambientales y mobiliario rattan">
+            <img src="assets/img/entelado-petalo-camel-boda.jpg?v=4k" alt="Entelado artesanal tipo pétalo en tono camel" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Carpas y Entelados</span>
+              <h4 class="portfolio-item__title">Entelado Pétalo &amp; Calefacción</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item" data-category="domos" data-src="assets/img/domo-transparente-nubes.jpg?v=4k" data-caption="Domo cristal en estructura negra con decoración aérea en jardín">
+            <img src="assets/img/domo-transparente-nubes.jpg?v=4k" alt="Domo cristal en estructura negra" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Domos Cristal</span>
+              <h4 class="portfolio-item__title">Domo Transparente en Jardín</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item" data-category="carpas" data-src="assets/img/carpas-atardecer.jpg" data-caption="Pabellones árabes y carpa principal al atardecer">
+            <img src="assets/img/carpas-atardecer.jpg" alt="Carpas al atardecer Oasis Eventos" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Montaje al Atardecer</span>
+              <h4 class="portfolio-item__title">Pabellones &amp; Nave Principal</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item" data-category="mobiliario" data-src="assets/img/mesa-blanca-plato-dorado.jpg" data-caption="Mesa vintage blanca con camino rose gold, plato base dorado y cristalería fina">
+            <img src="assets/img/mesa-blanca-plato-dorado.jpg" alt="Mesa vintage blanca con plato base dorado" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Loza y Cristalería</span>
+              <h4 class="portfolio-item__title">Montaje Barroco Dorado</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item portfolio-item--tall" data-category="domos" data-src="assets/img/pabellon-atardecer-vertical.jpg" data-caption="Pabellones árabes de punta alta al atardecer para eventos corporativos y culturales">
+            <img src="assets/img/pabellon-atardecer-vertical.jpg" alt="Pabellón árabe al atardecer" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Pabellones Árabes</span>
+              <h4 class="portfolio-item__title">Pabellones de Punta Alta</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item portfolio-item--wide" data-category="domos" data-src="assets/img/evento-masivo-aerea.jpg" data-caption="Vista aérea de montaje para evento masivo y deportivo con nave principal y pabellones">
+            <img src="assets/img/evento-masivo-aerea.jpg" alt="Vista aérea de evento masivo con carpas Oasis Eventos" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Eventos Masivos</span>
+              <h4 class="portfolio-item__title">Cobertura para Festivales y Carreras</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item" data-category="mobiliario" data-src="assets/img/cubiertos-dorados-marmol.jpg" data-caption="Cubertería estilizada en acabado oro espejo para banquetes de gala">
+            <img src="assets/img/cubiertos-dorados-marmol.jpg" alt="Cubiertos dorados de lujo" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Detalles de Mesa</span>
+              <h4 class="portfolio-item__title">Cubertería Acabado Oro</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item" data-category="carpas" data-src="assets/img/cielo-tiras-blancas.jpg" data-caption="Cielo decorativo tejido con miles de listones blancos para recepciones y haciendas">
+            <img src="assets/img/cielo-tiras-blancas.jpg" alt="Cielo decorativo de tiras blancas" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Diseño Efímero</span>
+              <h4 class="portfolio-item__title">Cielo Textil de Listones</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item" data-category="mobiliario" data-src="assets/img/cubiertos-negros-marmol.jpg" data-caption="Cubertería minimalista en negro satinado para eventos contemporáneos">
+            <img src="assets/img/cubiertos-negros-marmol.jpg" alt="Cubiertos negros de lujo" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Detalles de Mesa</span>
+              <h4 class="portfolio-item__title">Cubertería Negro Satinado</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item" data-category="carpas" data-src="assets/img/carpa-gran-formato.jpg" data-caption="Carpa estructural de gran formato con ventanales panorámicos en jardín">
+            <img src="assets/img/carpa-gran-formato.jpg" alt="Carpa estructural de gran formato" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Gran Formato</span>
+              <h4 class="portfolio-item__title">Nave Estructural con Ventanales</h4>
+            </figcaption>
+          </figure>
+
+          <figure class="portfolio-item portfolio-item--wide" data-category="domos" data-src="assets/img/carpas-auditorio-metropolitano.jpg" data-caption="Instalación de pabellones continuos para eventos en explanada del Auditorio Metropolitano">
+            <img src="assets/img/carpas-auditorio-metropolitano.jpg" alt="Carpas en Auditorio Metropolitano" loading="lazy" />
+            <figcaption class="portfolio-item__overlay">
+              <span class="portfolio-item__cat">Corporativos y Exposiciones</span>
+              <h4 class="portfolio-item__title">Pabellones Modulares en Explanada</h4>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. COTIZADOR EDITORIAL (Sin emojis, limpio, directo a WhatsApp)
+         ========================================== -->
+    <section class="quote-banner" id="cotizador">
+      <div class="container">
+        <div class="quote-box gs-reveal">
+          <div class="quote-box__info">
+            <span class="section-kicker section-kicker--gold">COTIZACIÓN PERSONALIZADA</span>
+            <h2 class="quote-box__title">Planea tu montaje con nosotros</h2>
+            <p class="quote-box__text">
+              Indícanos las características principales de tu evento para enviarte por WhatsApp una propuesta a la medida con opciones de carpas, domos y mobiliario.
+            </p>
+
+            <div class="quote-box__trust">
+              <div class="trust-stat">
+                <strong>Atención Directa</strong>
+                <span>Asesoría técnica en medidas y terreno</span>
+              </div>
+              <div class="trust-stat">
+                <strong>Cobertura Total</strong>
+                <span>Puebla, Tlaxcala y alrededores</span>
+              </div>
+            </div>
+          </div>
+
+          <form class="quote-form" id="whatsappQuoteForm">
+            <div class="quote-form__group">
+              <label class="quote-form__label">I. Tipo de evento</label>
+              <div class="chip-selector" data-field="evento">
+                <button type="button" class="chip is-selected" data-value="Boda">Boda</button>
+                <button type="button" class="chip" data-value="Celebración Privada / XV Años">Celebración Privada</button>
+                <button type="button" class="chip" data-value="Evento Corporativo">Evento Corporativo</button>
+                <button type="button" class="chip" data-value="Festival / Evento Masivo">Festival o Masivo</button>
+              </div>
+            </div>
+
+            <div class="quote-form__group">
+              <label class="quote-form__label">II. Requerimientos del montaje <small>(Selección múltiple)</small></label>
+              <div class="chip-selector chip-selector--multi" data-field="servicios">
+                <button type="button" class="chip is-selected" data-value="Carpas y Entelados">Carpas y Entelados</button>
+                <button type="button" class="chip" data-value="Domo Transparente">Domo Transparente</button>
+                <button type="button" class="chip is-selected" data-value="Mobiliario de Lujo">Mobiliario de Lujo</button>
+                <button type="button" class="chip" data-value="Vajilla, Cristalería y Cubertería">Vajilla y Cristalería</button>
+                <button type="button" class="chip" data-value="Tarima o Escenario">Tarima o Escenario</button>
+              </div>
+            </div>
+
+            <div class="quote-form__row">
+              <div class="quote-form__group">
+                <label class="quote-form__label" for="guestCount">III. Aforo estimado</label>
+                <select id="guestCount" class="quote-form__input">
+                  <option value="50 a 100 invitados">50 a 100 personas</option>
+                  <option value="100 a 200 invitados" selected>100 a 200 personas</option>
+                  <option value="200 a 400 invitados">200 a 400 personas</option>
+                  <option value="Más de 500 personas">Más de 500 personas</option>
+                </select>
+              </div>
+              <div class="quote-form__group">
+                <label class="quote-form__label" for="eventPlace">Ubicación del evento</label>
+                <input type="text" id="eventPlace" class="quote-form__input" placeholder="Ej. Puebla, Tlaxcala, Cholula..." />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-tertiary btn-block quote-form__submit">
+              <span>Enviar Solicitud a WhatsApp</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       6. CONTACTO Y PIE DE PÁGINA
+       ========================================== -->
+  <footer class="footer" id="contacto">
+    <div class="container">
+      <div class="footer__cta-card gs-reveal">
+        <div class="footer__cta-content">
+          <span class="section-kicker section-kicker--gold">CONTACTO DIRECTO</span>
+          <h2 class="footer__cta-title">Contáctanos hoy y transforma tu evento en algo único</h2>
+          <p class="footer__cta-desc">
+            Línea directa de atención y cotizaciones por WhatsApp o llamada telefónica.
+          </p>
+        </div>
+        <div class="footer__cta-actions">
+          <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20y%20cotizar%20mi%20evento." target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+            <span>WhatsApp: 222 436 6609</span>
+          </a>
+          <a href="tel:+522224366609" class="btn btn-inverted">
+            <span>Llamar por Teléfono</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__brand-col">
+          <img src="assets/img/logo-light.png" alt="Logo Oasis Eventos" class="footer__logo-clean" />
+          <p class="footer__brand-tagline">
+            Carpas y mobiliario de lujo para bodas, fiestas y eventos especiales. Calidad, estilo y comodidad diseñados para cualquier ocasión.
+          </p>
+        </div>
+
+        <!-- Discreet Social Media Links as requested -->
+        <div class="footer__social-col">
+          <span class="footer__social-label">Redes Sociales</span>
+          <div class="footer__social-links">
+            <a href="https://www.facebook.com/profile.php?id=61553444583339&locale=es_LA" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Facebook Oasis Eventos">
+              <span>Facebook / Oasis eventos</span>
+            </a>
+            <a href="https://www.instagram.com/oasiseventos01/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="Instagram @oasiseventos01">
+              <span>Instagram / @oasiseventos01</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__copyright">
+        <span>&copy; 2026 Oasis Eventos. Puebla &amp; Tlaxcala, México.</span>
+        <span>Atención directa: +52 1 222 436 6609</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Fullscreen Photo Inspection -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Vista ampliada de fotografía">
+    <button class="lightbox__close" id="lightboxClose" aria-label="Cerrar imagen">&times;</button>
+    <div class="lightbox__content">
+      <img src="" alt="" id="lightboxImg" class="lightbox__img" />
+      <p id="lightboxCaption" class="lightbox__caption"></p>
+      <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20me%20encant%C3%B3%20este%20montaje%20de%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizarlo." target="_blank" rel="noopener noreferrer" id="lightboxWaBtn" class="btn btn-primary btn-sm">
+        Cotizar un montaje como este
+      </a>
+    </div>
+  </div>
+
+  <!-- Refined Floating WhatsApp Button (Compact on Desktop so it never overlaps buttons, Full-Bar on Mobile) -->
+  <div class="floating-wa">
+    <a href="https://wa.me/5212224366609?text=Hola%20Oasis%20Eventos%2C%20quiero%20cotizar%20carpas%20o%20mobiliario%20para%20mi%20evento." target="_blank" rel="noopener noreferrer" class="floating-wa__btn" aria-label="Enviar mensaje por WhatsApp a Oasis Eventos">
+      <svg class="icon-wa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 14c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.3.2-.4.1-.1.1-.3 0-.4-.1-.1-.6-1.3-.8-1.8-.1-.7-.3-.7-.5-.7h-.5c-.2 0-.5.2-.6.3-.6.6-.9 1.3-.9 2.1.1.9.4 1.8 1 2.6 1.1 1.6 2.5 2.9 4.2 3.7.5.2.9.4 1.4.5.5.2 1 .2 1.6.1.7-.1 1.3-.6 1.7-1.2.2-.4.2-.8.1-1.2l-.4-.2m2.5-9.1C15.2 1 8.9 1 5 4.9c-3.2 3.2-3.8 8.1-1.6 12L2 22l5.3-1.4c1.5.8 3.1 1.2 4.7 1.2 5.5 0 9.9-4.4 9.9-9.9.1-2.6-1-5.1-2.8-7m-2.7 14c-1.3.8-2.8 1.3-4.4 1.3-1.5 0-2.9-.4-4.2-1.1l-.3-.2-3.1.8.8-3-.2-.3c-2.4-3.8-1.3-8.8 2.5-11.2 3.8-2.4 8.8-1.3 11.2 2.5 2.4 3.9 1.3 8.9-2.3 11.2"/></svg>
+      <span class="floating-wa__label">Cotizar por WhatsApp</span>
+    </a>
+  </div>
+
+  <!-- GSAP & ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Main Application Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

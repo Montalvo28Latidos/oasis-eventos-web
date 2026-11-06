@@ -1,0 +1,21 @@
+{
+  "name": "Oasis Eventos — Arquitectura Efímera y Mobiliario de Autor",
+  "short_name": "Oasis Eventos",
+  "description": "Renta de carpas estructurales, domos transparentes, entelados de alta costura y mobiliario de autor en Puebla y Tlaxcala.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#1A1A1A",
+  "theme_color": "#1A1A1A",
+  "icons": [
+    {
+      "src": "assets/img/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
