@@ -780,7 +780,20 @@ select {
   z-index: 2;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 768px) and (max-width: 1099px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+  .services-grid > .service-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1100px) {
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.25rem;
@@ -950,10 +963,20 @@ select {
   display: grid;
   grid-template-columns: 1fr;
   box-shadow: 0 -18px 50px rgba(0, 0, 0, 0.65);
-  min-height: 70svh;
+  min-height: 68svh;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 740px) {
+  .deck-card__inner {
+    grid-template-columns: 1.12fr 0.88fr;
+    min-height: 460px;
+  }
+}
+
+@media (min-width: 1024px) {
   .deck-card__inner {
     grid-template-columns: 1.18fr 0.82fr;
     min-height: 550px;
@@ -989,7 +1012,7 @@ select {
   background-color: #101010;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 740px) {
   .deck-card__visual {
     height: 100%;
   }
@@ -999,9 +1022,11 @@ select {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.06);
+  transform: scale(1.06) translate3d(0, 0, 0);
   filter: contrast(1.04) saturate(1.05);
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Floating Secondary Detail Inset that drifts in 3D Parallax on Mobile & PC */
@@ -1017,9 +1042,21 @@ select {
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75);
   z-index: 4;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 740px) {
+  .deck-card__inset {
+    width: 145px;
+    bottom: 1.15rem;
+    right: 1.15rem;
+    padding: 0.35rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .deck-card__inset {
     width: 165px;
     bottom: 1.5rem;
@@ -1055,7 +1092,13 @@ select {
   background: linear-gradient(160deg, #1E1E1E 0%, #141414 100%);
 }
 
-@media (min-width: 900px) {
+@media (min-width: 740px) {
+  .deck-card__content {
+    padding: 2.2rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .deck-card__content {
     padding: 3.25rem 3rem;
   }
@@ -1128,7 +1171,7 @@ select {
   color: var(--color-text-light-muted);
 }
 
-/* Scroll-Scrubbed Dual Filmstrips */
+/* Scroll-Scrubbed Dual Filmstrips (GPU Composited for 60fps iOS & iPadOS) */
 .scroll-filmstrips {
   margin-top: 5rem;
   overflow: hidden;
@@ -1136,6 +1179,7 @@ select {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem 0;
+  contain: content;
 }
 
 .filmstrip {
@@ -1143,10 +1187,13 @@ select {
   gap: 1rem;
   width: max-content;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .filmstrip--right {
-  transform: translateX(-18%);
+  transform: translate3d(-18%, 0, 0);
 }
 
 .filmstrip__item {
@@ -1156,9 +1203,18 @@ select {
   overflow: hidden;
   border: 1px solid rgba(197, 160, 89, 0.25);
   flex-shrink: 0;
+  background-color: #161616;
+  transform: translateZ(0);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 740px) {
+  .filmstrip__item {
+    width: 300px;
+    height: 195px;
+  }
+}
+
+@media (min-width: 1024px) {
   .filmstrip__item {
     width: 340px;
     height: 220px;
@@ -1169,6 +1225,9 @@ select {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* ==========================================================================
@@ -1330,6 +1389,12 @@ select {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
+}
+
+@media (min-width: 740px) {
+  .quote-box {
+    padding: 3rem 2.5rem;
+  }
 }
 
 @media (min-width: 992px) {

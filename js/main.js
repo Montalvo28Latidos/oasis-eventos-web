@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================================
   if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.config({ ignoreMobileResize: true });
+    gsap.defaults({ force3D: true });
 
     // 3a. Initial Hero Entrance
     gsap.fromTo('.reveal-hero',
@@ -272,34 +274,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // 3g. Dual Opposite Scroll-Scrubbed Filmstrips
+    // 3g. Dual Opposite Scroll-Scrubbed Filmstrips (GPU 3D Accelerated for iPhone/iPad)
     const filmstripLeft = document.getElementById('filmstripLeft');
     const filmstripRight = document.getElementById('filmstripRight');
 
     if (filmstripLeft) {
-      gsap.to(filmstripLeft, {
-        xPercent: -24,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: '.scroll-filmstrips',
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 0.5
-        }
-      });
-    }
-
-    if (filmstripRight) {
-      gsap.fromTo(filmstripRight,
-        { xPercent: -24 },
+      gsap.fromTo(filmstripLeft,
+        { xPercent: 0 },
         {
-          xPercent: 0,
+          xPercent: -20,
+          force3D: true,
           ease: 'none',
           scrollTrigger: {
             trigger: '.scroll-filmstrips',
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 0.5
+            scrub: true,
+            fastScrollEnd: true
+          }
+        }
+      );
+    }
+
+    if (filmstripRight) {
+      gsap.fromTo(filmstripRight,
+        { xPercent: -20 },
+        {
+          xPercent: 0,
+          force3D: true,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.scroll-filmstrips',
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: true,
+            fastScrollEnd: true
           }
         }
       );
