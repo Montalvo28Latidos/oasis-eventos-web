@@ -503,7 +503,7 @@ select {
   position: absolute;
   inset: -6% 0;
   background-image: url('../assets/img/carpa-noche-iluminada.jpg?v=4k');
-  background-position: center center;
+  background-position: 62% center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -515,6 +515,7 @@ select {
 @media (hover: none), (max-width: 991px) {
   .hero__parallax-bg {
     background-attachment: scroll;
+    background-position: 68% center;
   }
 }
 
@@ -1089,6 +1090,12 @@ select {
   pointer-events: none;
 }
 
+.deck-gallery__img--contain {
+  object-fit: contain;
+  background-color: #050505;
+  padding: 0.75rem;
+}
+
 /* Nav arrows */
 .deck-gallery__nav {
   position: absolute;
@@ -1518,6 +1525,12 @@ select {
   transition: transform 0.75s var(--ease-atelier);
 }
 
+.portfolio-item img.portfolio-item__img--studio {
+  object-fit: contain;
+  background-color: #050505;
+  padding: 0.5rem 0.5rem 2.2rem;
+}
+
 .portfolio-item:hover img {
   transform: scale(1.07);
 }
@@ -1671,7 +1684,7 @@ select {
 
 @media (min-width: 900px) {
   .chip-selector:not(.chip-selector--multi) {
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
